@@ -151,14 +151,14 @@
         "heading_LjcLdH": {
           "type": "heading",
           "settings": {
-            "heading": "Talk about your brand{{ metaobject.name.value }}",
+            "heading": "{{ metaobject.name.value }}",
             "heading_size": "h1"
           }
         },
         "text_fFz4Wp": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+            "text": "<p>{{ metaobject.name.value }}</p>"
           }
         },
         "button_3fkhVp": {
