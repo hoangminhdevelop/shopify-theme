@@ -12,13 +12,30 @@
     "slide": {
       "type": "slide-images",
       "blocks": {
-        "slide": {
+        "slide_PGdVag": {
           "type": "slide",
           "settings": {
-            "image": "text"
+            "image": "`12123423"
+          }
+        },
+        "slide_QHUdMj": {
+          "type": "slide",
+          "settings": {
+            "image": "1234354"
+          }
+        },
+        "slide_qgetwr": {
+          "type": "slide",
+          "settings": {
+            "image": "dsqaSq"
           }
         }
       },
+      "block_order": [
+        "slide_PGdVag",
+        "slide_QHUdMj",
+        "slide_qgetwr"
+      ],
       "settings": {
         "title": "Slide banner 133"
       }
