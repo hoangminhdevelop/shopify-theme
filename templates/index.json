@@ -12,16 +12,13 @@
     "slide": {
       "type": "slide-images",
       "blocks": {
-        "slide_cCKXka": {
+        "slide": {
           "type": "slide",
           "settings": {
             "image": "text"
           }
         }
       },
-      "block_order": [
-        "slide_cCKXka"
-      ],
       "settings": {
         "title": "Slide banner 133"
       }
