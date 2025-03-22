@@ -1,0 +1,39 @@
+<div>
+
+  {{ section.settings.title }}
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'slide' %}
+        <p>{{ block.settings.image }}</p>
+    {% endcase %}
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Slideshow",
+  "tag": "section",
+  "class": "slideshow",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow",
+      "default": "Slideshow"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Slide",
+      "type": "slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
