@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+
+.container {
+  @apply mx-auto w-full md:w-[1440px] lg:w-[90vw] max-w-full px-4 py-8;
+}

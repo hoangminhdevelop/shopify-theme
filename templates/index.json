@@ -6,7 +6,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Image banner",
+            "heading": "Image banner 1",
             "heading_size": "h0"
           }
         },
@@ -132,6 +132,34 @@
         "padding_bottom": 36
       }
     },
+    // "rich_text_1": {
+    //   "type": "rich-text",
+    //   "blocks": {
+    //     "heading": {
+    //       "type": "heading",
+    //       "settings": {
+    //         "heading": "Video banner",
+    //         "heading_size": "h1"
+    //       }
+    //     },
+    //     "text": {
+    //       "type": "text",
+    //       "settings": {
+    //         "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+    //       }
+    //     }
+    //   },
+    //   "block_order": [
+    //     "heading",
+    //     "text"
+    //   ],
+    //   "settings": {
+    //     "color_scheme": "scheme-1",
+    //     "full_width": true,
+    //     "padding_top": 40,
+    //     "padding_bottom": 0
+    //   }
+    // },
     "video": {
       "type": "video",
       "settings": {
@@ -204,6 +232,7 @@
     "rich_text",
     "featured_collection",
     "collage",
+    // "rich_text_1",
     "video",
     "multicolumn"
   ]

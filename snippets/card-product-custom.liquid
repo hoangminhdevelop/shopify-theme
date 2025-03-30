@@ -1,0 +1,51 @@
+{% comment %}
+  Input:
+     - product-card: Product object
+
+   Use:
+     - {% render 'card-product-custom', product-card: product-card %}
+{% endcomment %}
+
+<div class="card-product-custom px-3 py-4 rounded-sm shadow-sm overflow-hidden bg-white">
+  <a href="{{ card_product.url }}" class="block">
+    <div class="card-product-custom__image-wrapper w-full h-[200px] overflow-hidden">
+      <img
+        srcset="
+          {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+          {%- if card_product.featured_media.width >= 360 -%}{{ card_product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+          {%- if card_product.featured_media.width >= 533 -%}{{ card_product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+          {%- if card_product.featured_media.width >= 720 -%}{{ card_product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+          {%- if card_product.featured_media.width >= 940 -%}{{ card_product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+          {%- if card_product.featured_media.width >= 1066 -%}{{ card_product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+          {{ card_product.featured_media | image_url }} {{ card_product.featured_media.width }}w
+        "
+        src="{{ card_product.featured_media | image_url: width: 533 }}"
+        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+        alt="{{ card_product.featured_media.alt | escape }}"
+        class="motion-reduce object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+        loading="lazy"
+        width="{{ card_product.featured_media.width }}"
+        height="200px"
+      >
+    </div>
+  </a>
+
+  <div class="card-product-custom__body p-4">
+    <h4 class="text-lg font-semibold text-gray-800 truncate">{{ card_product.title }}</h4>
+    <span class="block text-gray-600 text-md mt-1">
+      {{ card_product.price | money }}
+    </span>
+
+    {% form 'product', card_product %}
+      <input type="hidden" name="product-id" value="{{ card_product.id }}">
+      <input type="hidden" name="id" value="{{ card_product.variants.first.id }}">
+      <input type="hidden" name="quantity" value="3">
+      <button
+        type="submit"
+        class="mt-4 w-full bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors"
+      >
+        Add to cart
+      </button>
+    {% endform %}
+  </div>
+</div>

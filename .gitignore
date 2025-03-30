@@ -8,3 +8,8 @@
 ehthumbs.db
 Thumbs.db
 .shopify
+# Node modules
+node_modules
+
+# tailwind css
+tailwind-output.css
