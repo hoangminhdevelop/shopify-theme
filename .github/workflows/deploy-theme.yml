@@ -46,8 +46,4 @@ jobs:
              
 
       - name: Upload theme
-        run: shopify theme push \
-            --json \
-            --theme "${{ env.THEME_NAME }}"\
-            --store ${{ secrets.SHOPIFY_STORE }} \
-            --password ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+        run: shopify theme push --theme "${{ env.THEME_NAME }}"
