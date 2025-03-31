@@ -48,6 +48,6 @@ jobs:
       - name: Upload theme
         run: shopify theme push \
             --json \
-            "${{ env.THEME_NAME }}"\
+            --theme "${{ env.THEME_NAME }}"\
             --store ${{ secrets.SHOPIFY_STORE }} \
             --password ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
