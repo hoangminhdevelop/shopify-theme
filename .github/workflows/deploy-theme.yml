@@ -9,6 +9,7 @@ on:
 
 jobs:
   deploy:
+    if: startsWith(github.ref, 'refs/tags/')
     name: Deploy
     runs-on: ubuntu-latest
     steps:
@@ -45,10 +46,4 @@ jobs:
              
 
       - name: Upload theme
-        run: |
-              shopify theme push \
-                --json \
-                -u
-                --theme=theme-${{ env.RELEASE_VERSION }} \
-                --store=${{ secrets.SHOPIFY_STORE }} \
-                --password=${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+        run: shopify theme push -u --theme=${{ env.THEME_NAME }} --store=${{ secrets.SHOPIFY_STORE }} --password=${{ secrets.SHOPIFY_PASSWORD }}
