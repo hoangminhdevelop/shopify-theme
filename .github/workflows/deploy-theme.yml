@@ -12,6 +12,11 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/')
     name: Deploy
     runs-on: ubuntu-latest
+    env:
+      SHOPIFY_FLAG_STORE: ${{ secrets.SHOPIFY_FLAG_STORE }}
+      SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+      SHOPIFY_CLI_TTY: 0
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
@@ -40,9 +45,9 @@ jobs:
         run: npm run tailwind:build
 
       - name: Upload theme
-        env:
-          SHOPIFY_FLAG_STORE: ${{ secrets.SHOPIFY_FLAG_STORE }}
-          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
-          SHOPIFY_CLI_TTY: 0
         run: |
-          shopify theme push -p --theme="${{ env.THEME_NAME }}" 
+          shopify theme push -u --theme="${{ env.THEME_NAME }}"
+
+      - name: Publish theme
+        run: |
+          shopify theme publish --theme="${{ env.THEME_NAME }}"
