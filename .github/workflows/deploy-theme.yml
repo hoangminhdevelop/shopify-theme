@@ -44,4 +44,5 @@ jobs:
           SHOPIFY_FLAG_STORE: ${{ secrets.SHOPIFY_FLAG_STORE }}
           SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
           SHOPIFY_CLI_TTY: 0
-        run: shopify theme push -u --theme="${{ env.THEME_NAME }}" --store="${{ env.SHOPIFY_FLAG_STORE }}" --password="${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}"
+        run: |
+          shopify theme push -p --theme="${{ env.THEME_NAME }}" 
