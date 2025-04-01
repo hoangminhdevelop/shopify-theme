@@ -29,7 +29,7 @@ jobs:
 
       - name: Install Shopify CLI
         run: npm install -g @shopify/cli@latest
-      
+
       - name: Install dependencies
         run: |
           npm install --no-optional=false
@@ -39,11 +39,9 @@ jobs:
       - name: Build Tailwind CSS
         run: npm run tailwind:build
 
-      - name: Show variables
-        run: |
-              echo "RELEASE_VERSION=${{ env.RELEASE_VERSION }}"
-              echo "THEME_NAME=theme-${{ env.RELEASE_VERSION }}"
-             
-
       - name: Upload theme
-        run: shopify theme push --theme "${{ env.THEME_NAME }}"
+        env:
+          SHOPIFY_FLAG_STORE: ${{ secrets.SHOPIFY_FLAG_STORE }}
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+          SHOPIFY_CLI_TTY: 0
+        run: shopify theme push -u --theme="${{ env.THEME_NAME }}" --store="${{ env.SHOPIFY_FLAG_STORE }}" --password="${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}"
