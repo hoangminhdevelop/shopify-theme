@@ -38,12 +38,12 @@ jobs:
 
       - name: Build Tailwind CSS
         run: npm run tailwind:build
-
-      - name: Show variables
-        run: |
-              echo "RELEASE_VERSION=${{ env.RELEASE_VERSION }}"
-              echo "THEME_NAME=theme-${{ env.RELEASE_VERSION }}"
+        
+      - env:
+          SHOPIFY_FLAG_STORE: ${{ secrets.SHOPIFY_FLAG_STORE }}
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+          SHOPIFY_CLI_TTY: 0
              
 
       - name: Upload theme
-        run: shopify theme push --theme "${{ env.THEME_NAME }}"
+        run: shopify theme push --theme "${{ env.THEME_NAME }}" -a
