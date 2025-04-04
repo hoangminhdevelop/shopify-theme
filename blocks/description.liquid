@@ -1,0 +1,38 @@
+<p style="color:{{ block.settings.color}}; margin-top:{{ block.settings.margin_top }}px; margin-bottom: {{ block.settings.margin_bottom }}px">
+  {{ block.settings.text }}
+</p>
+
+{% schema %}
+{
+  "name": "Description",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Description content"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Description content",
+      "default": "#000000"
+    },
+    { "type": "range", "label": "Margin top", "id": "margin_top", "default": 16, "min": 0, "max": 100, "step": 1 },
+    { "type": "range", "label": "Margin bottom", "id": "margin_bottom", "default": 16, "min": 0, "max": 100, "step": 1 }
+  ],
+  "presets": [
+    {
+      "name": "Description",
+      "settings": {
+        "text": "Hello, World!"
+      }
+    },
+    {
+      "name": "Subtext",
+      "settings": {
+        "text": "Hello, World 2!"
+      }
+    }
+  ]
+}
+{% endschema %}
