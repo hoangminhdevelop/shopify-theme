@@ -268,8 +268,8 @@
   },
   "order": [
     "image_banner",
-    "image_with_text_custom_Dcxt8p",
     "rich_text",
+    "image_with_text_custom_Dcxt8p",
     "featured_collection",
     "collage",
     "video",

@@ -1,21 +1,34 @@
-{% assign style = 'margin-top:{{ block.settings.margin_top }}px; margin-bottom: {{ block.settings.margin_bottom }}px' %}
+{% comment %} {% assign style = 'margin-top:{{ block.settings.margin_top }}px; margin-bottom: {{ block.settings.margin_bottom }}px' %} {% endcomment %}
+{% assign style = '' %}
 
 {% case block.settings.heading_level %}
   {% when 'h1' %}
-    <h1 style="{{ style }}">
+    <h1 class="heading" style="{{ style }}">
       {{ block.settings.text }}
     </h1>
   {% when 'h2' %}
-    <h2 style="{{ style }}">{{ block.settings.text }}</h2>
+    <h2 class="heading" style="{{ style }}">{{ block.settings.text }}</h2>
   {% when 'h3' %}
-    <h3 style="{{ style }}">{{ block.settings.text }}</h3>
+    <h3 class="heading" style="{{ style }}">{{ block.settings.text }}</h3>
   {% when 'h4' %}
-    <h4 style="{{ style }}">{{ block.settings.text }}</h4>
+    <h4 class="heading" style="{{ style }}">{{ block.settings.text }}</h4>
   {% when 'h5' %}
-    <h5 style="{{ style }}">{{ block.settings.text }}</h5>
+    <h5 class="heading" style="{{ style }}">{{ block.settings.text }}</h5>
   {% when 'h6' %}
-    <h6 style="{{ style }}">{{ block.settings.text }}</h6>
+    <h6 class="heading" style="{{ style }}">{{ block.settings.text }}</h6>
 {% endcase %}
+
+{% stylesheet %}
+  .heading {
+    font-size: 24px;
+    line-height: 1.5;
+    color: olive;
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  console.log('Heading loaded');
+{% endjavascript %}
 
 {% schema %}
 {

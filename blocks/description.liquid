@@ -1,6 +1,21 @@
-<p style="color:{{ block.settings.color}}; margin-top:{{ block.settings.margin_top }}px; margin-bottom: {{ block.settings.margin_bottom }}px">
+<p
+  class="description"
+  style="color:{{ block.settings.color}}; margin-top:{{ block.settings.margin_top }}px; margin-bottom: {{ block.settings.margin_bottom }}px"
+>
   {{ block.settings.text }}
 </p>
+
+{% stylesheet %}
+  .description {
+    font-size: 16px;
+    line-height: 1.5;
+    color: red;
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  console.log('Description loaded');
+{% endjavascript %}
 
 {% schema %}
 {

@@ -1,6 +1,20 @@
+{{ 'subtext.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'subtext.js' | asset_url }}" defer></script>
+
+{% if block.settings.text == blank %}
+  {% assign block.settings.text = 'Subtext content' %}
+{% endif %}
+
+{% if block.settings.margin_top == blank %}
+  {% assign block.settings.margin_top = 16 %}
+{% endif %}
+
+{% if block.settings.margin_bottom == blank %}
+  {% assign block.settings.margin_bottom = 16 %}
+{% endif %}
 <span
   style="margin-top:{{ block.settings.margin_top }}px; margin-bottom: {{ block.settings.margin_bottom }}px"
-  class="block"
+  class="block subtext"
 >
   {{- block.settings.text -}}
 </span>
